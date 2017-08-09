@@ -19,17 +19,17 @@ public class SortJob {
 
         Job job = new Job(conf, "[Sort RandomNum]");
 
+        job.setJarByClass(SortJob.class);
         job.setMapperClass(SortMapper.class);
         job.setMapOutputKeyClass(NullWritable.class);//默认值为LongWritable.class
         job.setMapOutputValueClass(LongWritable.class);//默认值为Text.class
 
         job.setNumReduceTasks(1);
-//        job.setPartitionerClass(MyPartitioner.class);
-//        job.setCombinerClass(MyCombiner.class);
+//        job.setPartitionerClass(SortPartitioner.class);
 
         job.setReducerClass(SortReducer.class);
-        job.setOutputKeyClass(NullWritable.class);
-        job.setOutputValueClass(LongWritable.class);
+        job.setOutputKeyClass(NullWritable.class);//若此处不设定的话，
+        job.setOutputValueClass(LongWritable.class);//必须在mapper，reducer中使用默认类型
 
         //设置输入和输出目录
         FileInputFormat.addInputPath(job, new Path(args[0]));

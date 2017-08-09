@@ -5,5 +5,5 @@ package mapreduce.tools;
  */
 public class ExistJobs {
     public static final String TOPN_JOB = "topn";
-    public static final String Sort_JOB = "mapreduce";
+    public static final String Sort_JOB = "sort";
 }

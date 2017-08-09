@@ -18,6 +18,7 @@ public class TopNJob {
 
         Job job = new Job(conf, "[TopN RandomNum]");
 
+        job.setJarByClass(TopNJob.class);//必须有
         job.setMapperClass(TopNMapper.class);
         job.setMapOutputKeyClass(NullWritable.class);//默认值为LongWritable.class
         job.setMapOutputValueClass(LongWritable.class);//默认值为Text.class

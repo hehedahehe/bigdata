@@ -25,14 +25,14 @@ public class TopNMapper extends Mapper<LongWritable, Text, NullWritable, LongWri
      * @throws IOException
      * @throws InterruptedException
      */
-        public void map(LongWritable key, Text line, Context context)
-            throws IOException,InterruptedException{
+    public void map(LongWritable key, Text line, Context context)
+        throws IOException,InterruptedException{
 
-            treeMap.put(-Long.parseLong(line.toString()),"");
-            if(treeMap.size()>N){
-                treeMap.remove(treeMap.firstKey());//删除key最小元素
-            }
-}
+        treeMap.put(-Long.parseLong(line.toString()),"");
+        if(treeMap.size()>N){
+            treeMap.remove(treeMap.firstKey());//删除key最小元素
+        }
+    }
 
     @Override
     protected void cleanup(Context context) throws IOException, InterruptedException {

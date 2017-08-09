@@ -1,8 +1,10 @@
 package mapreduce;
 
 
-import mapreduce.tools.ExistJobs;
+import mapreduce.jobs.sort.SortJob;
 import mapreduce.jobs.topn.TopNJob;
+
+import mapreduce.tools.ExistJobs;
 
 public class Main {
 
@@ -13,6 +15,7 @@ public class Main {
         String[] paths = new String[]{args[1],args[2]};
         switch (jobName){
             case ExistJobs.Sort_JOB:
+                SortJob.Sort(paths);
                 break;
             case ExistJobs.TOPN_JOB:
                 TopNJob.doTopNJob(paths);
